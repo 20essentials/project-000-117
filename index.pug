@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Sequence
+    link(rel="shortcut icon" href="assets/favicon.png" type="image/x-icon")
+    style.
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100%;
+        min-height: 100dvh;
+        animation: zoomBg 10s linear alternate infinite;
+      }
+
+      .background {
+        position: fixed;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          45deg,
+          #0f08 0px 40px,
+          #fff 40px 80px
+        );
+        background-size: 400%;
+        animation: mover 60s linear infinite normal;
+      }
+
+      .background::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          #0f08 0px 40px,
+          #fff 40px 80px
+        );
+        background-size: 400%;
+        mix-blend-mode: plus-lighter;
+      }
+
+      @keyframes mover {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+  body
+    main.background
